@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SharedResourcesPage"
+             x:Class="SharedResourcesPage.MainPage"
+             Padding="{x:Static local:AppConstants.PagePadding}">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <LayoutOptions x:Key="horzOptions"
+                     Alignment="Center" />
+
+      <LayoutOptions x:Key="vertOptions"
+                     Alignment="Center"
+                     Expands="True" />
+
+      <x:Double x:Key="borderWidth">
+        3
+      </x:Double>
+
+      <x:Double x:Key="rotationAngle">-15</x:Double>
+
+      <Font x:Key="font">Large</Font>
+
+      <OnPlatform x:Key="textColor"
+                  x:TypeArguments="Color"
+                  iOS="Red"
+                  Android="Aqua"
+                  WinPhone="#80FF80" />
+      
+
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  
+  <StackLayout>
+    <StackLayout.Resources>
+      <ResourceDictionary>
+        <Color x:Key="textColorBlue">Blue</Color>
+      </ResourceDictionary>
+    </StackLayout.Resources>
+
+    <Label Text="Hello XAML!"
+           TextColor="{x:Static local:AppConstants.ForegroundColor}"
+           BackgroundColor="{x:Static local:AppConstants.BackgroundColor}"
+           Font="{x:Static local:AppConstants.TitleFont}"
+           HorizontalOptions="Center" />    
+    
+    <Button Text="Do this!"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            BorderWidth="3"
+            Rotation="-15"
+            TextColor="Blue"
+            Font="Large" />
+
+    <Button Text="Do that!"
+            HorizontalOptions="{StaticResource horzOptions}"
+            VerticalOptions="{StaticResource vertOptions}"
+            BorderWidth="{StaticResource borderWidth}"
+            Rotation="{StaticResource rotationAngle}"
+            TextColor="{x:Static local:AppConstants.ForegroundColor}"
+            Font="{StaticResource font}" />
+
+    <Button Text="Do the other thing!"
+            HorizontalOptions="{StaticResource horzOptions}"
+            VerticalOptions="{StaticResource vertOptions}"
+            BorderWidth="{StaticResource borderWidth}"
+            Rotation="{StaticResource rotationAngle}"
+            TextColor="{StaticResource textColor}"
+            Font="{StaticResource font}" />
+
+  </StackLayout>
+  
+  
+  
+</ContentPage>

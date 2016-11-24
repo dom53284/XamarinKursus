@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamlSamples.HelloXamlPage"
+             Title="Hello XAML Page"
+             Padding="10, 40, 10, 10">
+
+  <StackLayout>
+
+    <Slider VerticalOptions="CenterAndExpand"
+            ValueChanged="SliderValueChanged" />
+
+    <Label x:Name="valueLabel"
+           VerticalOptions="CenterAndExpand"
+           HorizontalOptions="Center"
+           Font="Large">
+      <Label.Text>
+        Dette er en test
+        Hello Hallo
+      </Label.Text>
+      <Label.TextColor>
+        Aqua
+      </Label.TextColor>
+      
+    </Label>
+      
+
+    <Button Text="Click Me!"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand" 
+            Clicked="ButtonClicked"/>
+    
+
+  </StackLayout>
+  
+  
+  
+  
+  
+</ContentPage>

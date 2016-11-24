@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Lommeregner"
+             x:Class="Lommeregner.MainPage">
+
+  
+  <ContentPage.Content>
+
+    <StackLayout Orientation="Vertical">
+      <Frame>
+        <Label x:Name="TopLabel" Text="12345" BackgroundColor="Navy" TextColor="White" />
+      </Frame>
+    
+      <StackLayout Orientation="Horizontal"
+                   HorizontalOptions="CenterAndExpand"
+                   Spacing="15">
+        <Button Text="1" Clicked="OnNumberClick" />
+        <Button Text="2" Clicked="OnNumberClick" />
+        <Button Text="3" Clicked="OnNumberClick" />
+      </StackLayout>
+
+      <StackLayout Orientation="Horizontal"
+                   HorizontalOptions="CenterAndExpand"
+                   Spacing="15">
+        <Button Text="4" Clicked="OnNumberClick" />
+        <Button Text="5" Clicked="OnNumberClick" />
+        <Button Text="6" Clicked="OnNumberClick" />
+      </StackLayout>
+
+      <StackLayout Orientation="Horizontal"
+                   HorizontalOptions="CenterAndExpand"
+                   Spacing="15">
+        <Button Text="7" Clicked="OnNumberClick" />
+        <Button Text="8" Clicked="OnNumberClick" />
+        <Button Text="9" Clicked="OnNumberClick" />
+      </StackLayout>
+
+      <Button Text="0" Clicked="OnNumberClick" />
+
+    </StackLayout>
+
+  </ContentPage.Content>
+
+
+
+</ContentPage>
