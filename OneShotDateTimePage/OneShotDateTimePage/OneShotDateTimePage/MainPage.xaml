@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:OneShotDateTimePage"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="OneShotDateTimePage.MainPage"
              Title="One-Shot DateTime Page">
 
-
-  <StackLayout BindingContext="{x:Static sys:DateTime.Now}"
-               HorizontalOptions="Center"
+  <StackLayout HorizontalOptions="Center"
                VerticalOptions="Center">
 
-    <Label Text="{Binding Year, StringFormat='The year is {0}'}" />
-    <Label Text="{Binding StringFormat='The month is {0:MMMM}'}" />
-    <Label Text="{Binding Day, StringFormat='The day is {0}'}" />
-    <Label Text="{Binding StringFormat='The time is {0:T}'}" />
+    <Label Text="{Binding Year, StringFormat='The year is {0}'}" 
+           BindingContext="{x:Static sys:DateTime.Now}" />
+    
+    <Label Text="{Binding StringFormat='The month is {0:MMMM}'}" 
+           BindingContext="{x:Static sys:DateTime.Now}"/>
+    
+    <Label Text="{Binding Day, StringFormat='The day is {0}'}" 
+           BindingContext="{x:Static sys:DateTime.Now}"/>
+    
+    <Label Text="{Binding StringFormat='The time is {0:T}'}" 
+           BindingContext="{x:Static sys:DateTime.Now}"/>
 
-
-    <Label Text="{Binding DateTime, StringFormat='{0:T}'}"
+    <Label Text="{Binding MyDateTime}"
            FontSize="Large"
            HorizontalOptions="Center"
-           VerticalOptions="Center"
-           BindingContext="{local:ClockViewModel}" />
+           VerticalOptions="Center" />
 
-    <Label Text="{Binding DateTime.Second, StringFormat='{0}'}"
+    <Label Text="{Binding MyDateTime.Second, StringFormat='{0}'}"
            FontSize="Large"
            HorizontalOptions="Center"
-           VerticalOptions="Center"
-           BindingContext="{local:ClockViewModel}" />
+           VerticalOptions="Center" />
   
-    
-    
+   
   </StackLayout>
 
 </ContentPage>

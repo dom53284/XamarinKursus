@@ -12,6 +12,8 @@ namespace OneShotDateTimePage
         public MainPage()
         {
             InitializeComponent();
+            ClockViewModel cm = new ClockViewModel();
+            BindingContext = cm;
         }
     }
 }

@@ -17,16 +17,16 @@ namespace OneShotDateTimePage
 
         public ClockViewModel()
         {
-            this.DateTime = DateTime.Now;
+            this.MyDateTime = DateTime.Now;
 
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                this.DateTime = DateTime.Now;
+                this.MyDateTime = DateTime.Now;
                 return true;
             });
         }
 
-        public DateTime DateTime
+        public DateTime MyDateTime
         {
             set
             {
@@ -37,7 +37,7 @@ namespace OneShotDateTimePage
                     if (PropertyChanged != null)
                     {
                         PropertyChanged(this,
-                            new PropertyChangedEventArgs("DateTime"));
+                            new PropertyChangedEventArgs(nameof(MyDateTime)));
                     }
                 }
             }
