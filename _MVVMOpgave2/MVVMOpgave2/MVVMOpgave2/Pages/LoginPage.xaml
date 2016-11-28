@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMOpgave2.Pages.LoginPage">
+
+  <StackLayout>
+    <Label x:Name="versionTextLabel" Text="{Binding VersionText}"/>
+    <Label x:Name="statusTextLabel" Text="{Binding StatusText}" />
+    
+    <Entry x:Name="loginEntry" 
+           Text="{Binding LoginEntry}" 
+           Placeholder="Indtast kode" 
+           Keyboard="Numeric" 
+           />
+        
+    <Button x:Name="loginButton" Text="{Binding Login}" />
+    
+    
+  </StackLayout>
+  
+  
+  
+  
+</ContentPage>
