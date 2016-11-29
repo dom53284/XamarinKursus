@@ -10,9 +10,9 @@ namespace MVVMOpgave2.ViewModel
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private string versionText = "1.000";
+        private string versionText = "Ver. 1.0.0";
         private string statusText = "indtast telefonnummer";
-        private bool loginOk = false;
+        private bool entryCodeOk = false;
         private string login;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,18 +51,18 @@ namespace MVVMOpgave2.ViewModel
             }
         }
 
-        public bool LoginOk
+        public bool EntryCodeIsOk
         {
             get
             {
-                return loginOk;
+                return entryCodeOk;
             }
 
             set
             {
-                if (loginOk != value)
+                if (entryCodeOk != value)
                 {
-                    loginOk = value;
+                    entryCodeOk = value;
                     OnPropertyChanged();
                 }
             }
@@ -81,23 +81,18 @@ namespace MVVMOpgave2.ViewModel
                 {
                     login = value;
                     OnPropertyChanged();
-
-                    if (Login.Length == 8)
+                    EntryCodeIsOk = (Login.Length == 8);
+                    if (EntryCodeIsOk)
                     {
                         StatusText = "klar til at logge ind";
-                        LoginOk = true;
                     }
                     else
                     {
                         StatusText = "indtast telefonnummer";
-                        LoginOk = false;
                     }
-
-
                 }
             }
         }
-
 
         public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MVVMOpgave2.ViewModel;
-using MVVMOpgave2.Pages;
+
 using Xamarin.Forms;
 
-namespace MVVMOpgave2
+namespace WorkingWithImage
 {
     public partial class App : Application
     {
@@ -14,9 +13,7 @@ namespace MVVMOpgave2
         {
             InitializeComponent();
 
-            var viewModel = new LoginViewModel();
-
-            this.MainPage = new LoginPage(viewModel);
+            MainPage = new WorkingWithImage.MainPage();
         }
 
         protected override void OnStart()

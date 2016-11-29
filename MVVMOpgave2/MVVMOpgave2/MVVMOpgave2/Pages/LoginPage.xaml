@@ -5,16 +5,17 @@
 
 
   <StackLayout>
+    
     <Label x:Name="versionTextLabel" 
-           Text="N/A"  
+           Text="{Binding VersionText}"  
            HorizontalOptions="CenterAndExpand"
-           VerticalOptions="Start"
+           VerticalOptions="StartAndExpand"
            />
 
     <Label x:Name="statusTextLabel" 
            Text="N/A" 
            HorizontalOptions="CenterAndExpand"
-           VerticalOptions="EndAndExpand"
+           VerticalOptions="End"
            />
 
     <Entry x:Name="loginEntry"
@@ -29,6 +30,7 @@
             Text="Login" 
             HorizontalOptions="FillAndExpand"
             VerticalOptions="End"
+            
             />
 
 

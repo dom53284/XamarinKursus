@@ -14,21 +14,33 @@ namespace MVVMOpgave2.Pages
 
         public LoginPage(LoginViewModel loginViewModel)
         {
+            InitializeComponent();
+
             this.loginViewModel = loginViewModel;
 
             BindingContext = this.loginViewModel;
 
-            InitializeComponent();
+            // Binding method #3. Foregår i LoginPage.xaml
+            //versionTextLabel.SetBinding<LoginViewModel>(Label.TextProperty, vm => vm.VersionText, BindingMode.OneWay);
+
+            // Binding method #1. Unsafe.
+            //statusTextLabel.SetBinding<LoginViewModel>(Label.TextProperty, vm => vm.StatusText, BindingMode.OneWay);
+            statusTextLabel.SetBinding(Label.TextProperty, "StatusText", BindingMode.OneWay);
 
 
-            versionTextLabel.SetBinding<LoginViewModel>(Label.TextProperty, vm => vm.VersionText, BindingMode.OneWay);
+            // Binding method #2. using lambde and safetype
+            loginEntry.SetBinding<LoginViewModel>(Entry.TextProperty, vm => vm.Login, BindingMode.TwoWay);
+            loginButton.SetBinding<LoginViewModel>(Button.IsEnabledProperty, vm => vm.EntryCodeIsOk, BindingMode.OneWay);
 
-            statusTextLabel.SetBinding<LoginViewModel>(Label.TextProperty, vm => vm.StatusText, BindingMode.OneWay);
 
-            loginEntry.SetBinding<LoginViewModel>(Entry.TextProperty, vm => vm.Login, BindingMode.OneWayToSource);
+            // Eventcall
+            loginButton.Clicked += LoginButtonClicked;
 
-            loginButton.SetBinding<LoginViewModel>(Button.IsEnabledProperty, vm => vm.LoginOk, BindingMode.OneWay);
+        }
 
+        private void LoginButtonClicked(object sender, EventArgs e)
+        {
+            loginEntry.Text = "";
         }
     }
 }
