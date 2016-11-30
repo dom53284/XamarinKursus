@@ -29,7 +29,7 @@
 
     <!-- Øverste box -->
     <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" HorizontalOptions="FillAndExpand">
-      <Label Text="Helvellyn" />
+      <Label Text="Helvellyn" FontSize="Large" />
       <Label Text="950 meters" />
       <Label Text="Thursday, 30th April" />
     </StackLayout>
