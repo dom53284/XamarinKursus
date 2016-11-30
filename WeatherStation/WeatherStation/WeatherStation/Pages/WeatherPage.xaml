@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherStation.Pages.WeatherPage">
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="3*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+
+    <!-- Øverste box -->
+    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" HorizontalOptions="FillAndExpand">
+      <Label Text="Helvellyn" />
+      <Label Text="950 meters" />
+      <Label Text="Thursday, 30th April" />
+    </StackLayout>
+    
+    
+    
+    <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="Pic2" Aspect="Fill" />
+    <Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Source="Pic3" Aspect="Fill" />
+    <Image Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Source="Pic4" Aspect="Fill" />
+    <Image Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" Source="Pic5" Aspect="Fill" />
+    <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Source="Pic6" Aspect="Fill" />
+    <Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Source="Pic7" Aspect="Fill" />
+    <Image Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Source="Pic8" Aspect="Fill" />
+
+  </Grid>
+  
+</ContentPage>

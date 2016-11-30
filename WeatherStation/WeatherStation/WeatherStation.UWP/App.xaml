@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="WeatherStation.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WeatherStation.UWP"
+    RequestedTheme="Light">
+
+</Application>

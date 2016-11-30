@@ -2,15 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CustomRenderer"
-             xmlns:local2="clr-namespace:CustomRenderer;assembly=CustomRenderer"
              x:Class="CustomRenderer.MainPage">
 
-  <!--<StackLayout>
-    <local2:MyEntry Text="Welcome to Xamarin Forms!"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
+  <!--xmlns:local2="clr-namespace:CustomRenderer;assembly=CustomRenderer"-->
 
-  </StackLayout>-->
+
+  <StackLayout>
+    
+    <local:MyEntry Text="MyEntry Entry" />
+
+    <Entry Text="Normal Entry" />
+
+  </StackLayout>
   
 
 </ContentPage>

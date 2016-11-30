@@ -13,23 +13,24 @@ namespace CustomRenderer
         {
             InitializeComponent();
 
-            Content = new StackLayout
-            {
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Hello, Custom Renderer",
-                    },
-                    new MyEntry
-                    {
-                        Text = "In Shared Code",
-                    }
+            //Content = new StackLayout
+            //{
+            //    Children =
+            //    {
+            //        new Label
+            //        {
+            //            Text = "Hello, Custom Renderer",
+            //        },
+            //        new MyEntry
+            //        {
+            //            Text = "In Shared Code",
+            //        }
 
-                },
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-            };
+            //    },
+            //    VerticalOptions = LayoutOptions.CenterAndExpand,
+            //    HorizontalOptions = LayoutOptions.CenterAndExpand,
+            //};
+
 
         }
     }
