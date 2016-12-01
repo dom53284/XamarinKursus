@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherStation.Pages.WeatherPage">
+             x:Class="WeatherStation.Pages.WeatherPage"
+             BackgroundImage="weatherbackground.jpg">
 
   <Grid>
 
@@ -28,15 +29,41 @@
 
 
     <!-- Øverste box -->
-    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" HorizontalOptions="FillAndExpand">
-      <Label Text="Helvellyn" FontSize="Large" />
-      <Label Text="950 meters" />
-      <Label Text="Thursday, 30th April" />
+    <AbsoluteLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" BackgroundColor="#5F000000">
+      <Label Text="Helvellyn" FontSize="30" FontAttributes="Bold" TextColor="White"
+             AbsoluteLayout.LayoutBounds="0,10,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />        
+      <Label Text="950 meters" FontSize="12" TextColor="White" 
+             AbsoluteLayout.LayoutBounds="0,45,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
+      <Label Text="Thursday, 30th April" FontSize="20" TextColor="White" 
+             AbsoluteLayout.LayoutBounds="0,60,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
+    </AbsoluteLayout>
+
+    
+    <!-- Midterste række, box til venstre -->
+    <!-- Lodrette StackLayout -->
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#3F000000"> 
+      <!-- Vandrette StackLayout med tidspunkt -->
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">  
+        <Label HorizontalOptions="EndAndExpand" Text="01" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+        <Label HorizontalOptions="StartAndExpand" Text="00" FontSize="18" TextColor="White"/>
+      </StackLayout> 
+      <!-- Første Icon -->
+      <Image Source="Sky2" Scale=".75"/>
+      <!-- Label med Fugtighed -->
+        <Label HorizontalOptions="CenterAndExpand" Text="84 %" FontSize="15" TextColor="White"/>
+      <!-- Andet Icon med Temperatur -->
+      <!-- Tredie Icon med vindhastighed -->
+      <!-- Fast label med "UV" -->
+      <!-- Nedeste Icon med UV-niveau -->
+
+    
     </StackLayout>
+    <!-- Lodrette StackLayout -->
+  
     
     
-    
-    <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="Pic2" Aspect="Fill" />
+  
+    <!--<Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="Pic2" Aspect="Fill" />-->
     <Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Source="Pic3" Aspect="Fill" />
     <Image Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Source="Pic4" Aspect="Fill" />
     <Image Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" Source="Pic5" Aspect="Fill" />
@@ -45,5 +72,6 @@
     <Image Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Source="Pic8" Aspect="Fill" />
 
   </Grid>
+  
   
 </ContentPage>
