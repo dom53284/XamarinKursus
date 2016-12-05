@@ -18,7 +18,7 @@ namespace WeatherStation
             //this.MainPage = new WeatherPage(viewModel);
 
             // Samme som ovenstående...
-            this.MainPage = new WeatherPage(new WeatherViewModel());
+            this.MainPage = new WeatherPage2(new WeatherViewModel());
 
 
             // Bindings.......

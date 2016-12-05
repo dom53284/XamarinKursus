@@ -2200,8 +2200,8 @@ namespace WeatherStation.Droid
 			// aapt resource value: 0x7f0200a0
 			public const int mr_ic_play_light = 2130837664;
 			
-			// aapt resource value: 0x7f0200ac
-			public const int notification_template_icon_bg = 2130837676;
+			// aapt resource value: 0x7f0200ad
+			public const int notification_template_icon_bg = 2130837677;
 			
 			// aapt resource value: 0x7f0200a1
 			public const int Pic1 = 2130837665;
@@ -2234,7 +2234,10 @@ namespace WeatherStation.Droid
 			public const int Sky2 = 2130837674;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int weatherbackground = 2130837675;
+			public const int VindArrow = 2130837675;
+			
+			// aapt resource value: 0x7f0200ac
+			public const int weatherbackground = 2130837676;
 			
 			static Drawable()
 			{
