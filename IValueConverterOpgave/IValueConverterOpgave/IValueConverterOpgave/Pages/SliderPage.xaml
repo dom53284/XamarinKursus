@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IValueConverterOpgave;assembly=IValueConverterOpgave"
+             x:Class="IValueConverterOpgave.Pages.SliderPage">
+
+
+  <!--<ContentPage.Resources>
+    <ResourceDictionary>
+      <local:SliderValueConverter x:Key="sliderValueConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>-->
+  
+  
+  <StackLayout>
+    
+    <Label Text="0-300" />
+
+    <Label BindingContext="{x:Reference slider1}"
+           Text="{Binding Value, StringFormat='Slider1 Value = {0:F1}'}" />
+   
+    
+    <!--<Slider x:Name="slider1" Minimum="0" Maximum="300"
+            Value="{Binding MyValue, Converter={StaticResource sliderValueConverter}}"/>-->
+    
+    <Slider x:Name="slider1" Minimum="0" Maximum="300" />
+
+    <Label Text="0-3" />
+    
+    <Slider x:Name="slider2" Minimum="0" Maximum="3" />
+
+    <Label Text="{Binding MyValue}" />
+
+
+  </StackLayout>
+    
+  
+</ContentPage>

@@ -53,10 +53,12 @@
 
                 <StackLayout Orientation="Horizontal"
                              Spacing="0">
+                  
                   <Label Text="{Binding Color.R,
                                    Converter={StaticResource intConverter},
                                    ConverterParameter=255,
                                    StringFormat='R={0:X2}'}" />
+
                   <Label Text="{Binding Color.G,
                                    Converter={StaticResource intConverter},
                                    ConverterParameter=255,

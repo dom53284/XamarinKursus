@@ -37,34 +37,48 @@
       <Label Text="Thursday, 30th April" FontSize="20" TextColor="White" 
              AbsoluteLayout.LayoutBounds="0,60,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
     </AbsoluteLayout>
-
-    
     <!-- Midterste række, box til venstre -->
     <!-- Lodrette StackLayout -->
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#3F000000"> 
       <!-- Vandrette StackLayout med tidspunkt -->
-      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">  
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" >  
         <Label HorizontalOptions="EndAndExpand" Text="01" FontSize="20" FontAttributes="Bold" TextColor="White"/>
-        <Label HorizontalOptions="StartAndExpand" Text="00" FontSize="18" TextColor="White"/>
+        <Label HorizontalOptions="StartAndExpand" Text="00" FontSize="16" TextColor="White" />
       </StackLayout> 
       <!-- Første Icon -->
       <Image Source="Sky2" Scale=".75"/>
       <!-- Label med Fugtighed -->
-        <Label HorizontalOptions="CenterAndExpand" Text="84 %" FontSize="15" TextColor="White"/>
-      <!-- Andet Icon med Temperatur -->
-      <!-- Tredie Icon med vindhastighed -->
+      <Label HorizontalOptions="CenterAndExpand" Text="84 %" FontSize="15" TextColor="White"/>
+      <!-- Andet Icon med Temperatur-Label -->
+      <AbsoluteLayout>
+        <BoxView WidthRequest="40" HeightRequest="40" Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,.5,1" AbsoluteLayout.LayoutFlags="All" />
+        <Label HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+               Text="-4  &#870;C" FontSize="15" TextColor="Black"/>
+      </AbsoluteLayout>
+      <!-- Tredie Icon med vindhastigheds-Label. Drejet i vindretning. -->
       <!-- Fast label med "UV" -->
+      <Label HorizontalOptions="CenterAndExpand" Text="UV" FontSize="15" TextColor="White"/>
       <!-- Nedeste Icon med UV-niveau -->
-
     
     </StackLayout>
     <!-- Lodrette StackLayout -->
-  
+
+
+
+    <!-- Midterste række, box 2 fra venstre -->
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" BackgroundColor="#3F000000"> 
+     
+    
+      
+    
+    
+    </StackLayout>
+    
     
     
   
     <!--<Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="Pic2" Aspect="Fill" />-->
-    <Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Source="Pic3" Aspect="Fill" />
+    <!--<Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Source="Pic3" Aspect="Fill" />-->
     <Image Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Source="Pic4" Aspect="Fill" />
     <Image Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" Source="Pic5" Aspect="Fill" />
     <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Source="Pic6" Aspect="Fill" />

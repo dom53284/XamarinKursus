@@ -14,9 +14,25 @@ namespace WeatherStation
         {
             InitializeComponent();
 
-            var viewModel = new WeatherViewModel();
+            //var viewModel = new WeatherViewModel();
+            //this.MainPage = new WeatherPage(viewModel);
 
-            this.MainPage = new WeatherPage(viewModel);
+            // Samme som ovenstående...
+            this.MainPage = new WeatherPage(new WeatherViewModel());
+
+
+            // Bindings.......
+
+
+
+
+
+
+
+
+
+
+
         }
 
         protected override void OnStart()

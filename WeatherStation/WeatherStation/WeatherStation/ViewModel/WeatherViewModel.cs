@@ -8,11 +8,25 @@ using System.Threading.Tasks;
 
 namespace WeatherStation.ViewModel
 {
-    public class WeatherViewModel
+    public class WeatherViewModel : INotifyPropertyChanged
     {
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+
+
+
+
+
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            var ev = PropertyChanged;
+            if (ev != null)
+            {
+                ev(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
     }
 }

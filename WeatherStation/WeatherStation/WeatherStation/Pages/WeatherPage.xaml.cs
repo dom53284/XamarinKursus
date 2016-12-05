@@ -15,8 +15,12 @@ namespace WeatherStation.Pages
 
         public WeatherPage(WeatherViewModel weatherViewModel)
         {
-            InitializeComponent();
 
+            this.weatherViewModel = weatherViewModel;
+
+            BindingContext = this.weatherViewModel;
+
+            InitializeComponent();
 
 
 
