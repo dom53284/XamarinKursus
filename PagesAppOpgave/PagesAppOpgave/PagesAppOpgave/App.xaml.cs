@@ -17,7 +17,10 @@ namespace PagesAppOpgave
         {
             InitializeComponent();
             MainPage = tabPage;
+            tabPage.Title = "tabPage";
             navChar.Title = "Char";
+            navChar.BarTextColor = Color.Black;
+            navChar.BarBackgroundColor = Color.Yellow;
             navNum.Title = "Num";
             tabPage.Children.Add(navChar);
             tabPage.Children.Add(navNum);
