@@ -14,5 +14,11 @@ namespace PagesAppOpgave
         {
             InitializeComponent();
         }
+
+        private async void PopPageA(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
     }
 }
