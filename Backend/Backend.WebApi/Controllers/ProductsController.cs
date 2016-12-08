@@ -57,9 +57,14 @@ namespace Backend.WebApi.Controllers
                     return product;
                 };
             };
-            return null;
 
-            //// Alternativ måde med link
+            throw new NotFoundException();
+
+            //return null;
+
+            //// Alternativ måde med LINQ og anden result-type
+            //public IHttpActionResult GetProduct(int id)
+            //
             //var product = this.products.Where(p => p.Id == id)
             //    .SingleOrDefault();
             //if (product == null)
