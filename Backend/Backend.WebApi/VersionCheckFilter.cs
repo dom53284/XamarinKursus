@@ -23,18 +23,26 @@ namespace Backend.WebApi
 
             var response = new HttpResponseMessage();
             response.StatusCode = (HttpStatusCode)418; // I'm a teapot
-            var head = actionContext.Request.Headers.Where(p => p.Key == "X-Version");
-            foreach (var item in head)
+            IEnumerable<string> headerValues;
+            if (actionContext.Request.Headers.TryGetValues("X-Version", out headerValues))
             {
-                foreach (var s in item.Value)
+                if (headerValues.First() == "42")
                 {
-                    if (s == "42")
-                    {
-                        response = await continuation();
-                    }
-
+                    response = await continuation();
                 }
             }
+
+            //var head = actionContext.Request.Headers.Where(p => p.Key == "X-Version");
+            //foreach (var item in head)
+            //{
+            //    foreach (var s in item.Value)
+            //    {
+            //        if (s == "42")
+            //        {
+            //            response = await continuation();
+            //        }
+            //    }
+            //}
 
             return response;
 
