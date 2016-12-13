@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="WeatherApp.WeatherPage"
+       BackgroundImage="weatherbackground.jpg">
+
+
+
+
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="3*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+
+    <!-- Øverste box -->
+    <AbsoluteLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" BackgroundColor="#5F000000">
+      <Label Text="{Binding Place}" FontSize="30" FontAttributes="Bold" TextColor="White"
+             AbsoluteLayout.LayoutBounds="0,10,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
+      <Label Text="{Binding Altitude}" FontSize="12" TextColor="White"
+             AbsoluteLayout.LayoutBounds="0,45,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
+      <Label Text="{Binding DatoTid}" FontSize="20" TextColor="White"
+             AbsoluteLayout.LayoutBounds="0,60,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" LineBreakMode="WordWrap" />
+    </AbsoluteLayout>
+    <!-- Midterste række, box til venstre -->
+
+    <!-- Første lodrette box -->
+    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#3F000000">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <!-- [0] Tidspunkt -->
+        <RowDefinition Height="*" />
+        <!-- [1] Sky -->
+        <RowDefinition Height=".3*" />
+        <!-- [2] Space-->
+        <RowDefinition Height=".5*" />
+        <!-- [3] Relativ fugtighed -->
+        <RowDefinition Height="*" />
+        <!-- [4] Temperatur -->
+        <RowDefinition Height=".3*" />
+        <!-- [5] Space-->
+        <RowDefinition Height="*" />
+        <!-- [6] Vind-retning og styrke -->
+        <RowDefinition Height=".5*" />
+        <!-- [7] UV -->
+        <RowDefinition Height="*" />
+        <!-- [8] UV Icon -->
+        <RowDefinition Height=".3*" />
+        <!-- [9] Space-->
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <!-- Vandrette StackLayout med tidspunkt -->
+      <StackLayout Grid.Row="0" Grid.Column="0"   Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" >
+        <Label HorizontalOptions="EndAndExpand" Text="01" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+        <Label HorizontalOptions="StartAndExpand" Text="00" FontSize="16" TextColor="White" />
+      </StackLayout>
+      <!-- Første Icon -->
+      <Image Grid.Row="1" Grid.Column="0" Source="Sky2" Scale="2"/>
+      <!-- Label med Relativ Fugtighed -->
+      <Label Grid.Row="3" Grid.Column="0" HorizontalOptions="CenterAndExpand" Text="84 %" FontSize="15" TextColor="White"/>
+      <!-- Andet Icon med Temperatur-Label -->
+      <AbsoluteLayout Grid.Row="4" Grid.Column="0">
+        <BoxView WidthRequest="40" HeightRequest="40" Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,.5,1" AbsoluteLayout.LayoutFlags="All" />
+        <Label HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               Text="-4  &#870;C" FontSize="15" TextColor="Black"/>
+      </AbsoluteLayout>
+      <!-- Tredie Icon med vindhastigheds-Label. Drejet i vindretning. -->
+      <AbsoluteLayout Grid.Row="6" Grid.Column="0">
+        <Image Source="VindArrow2" Scale="1.2" Rotation="45" AbsoluteLayout.LayoutBounds=".5,0,.5,1" AbsoluteLayout.LayoutFlags="All"/>
+        <!--<BoxView WidthRequest="40" HeightRequest="40" Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,.5,1" AbsoluteLayout.LayoutFlags="All" />-->
+        <Label HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               Text="16" FontSize="15" TextColor="Black"/>
+      </AbsoluteLayout>
+      <!-- Fast label med "UV" -->
+      <Label Grid.Row="7" Grid.Column="0" HorizontalOptions="CenterAndExpand" Text="UV" FontSize="15" TextColor="White"/>
+      <!-- Nedeste Icon med UV-niveau -->
+      <AbsoluteLayout Grid.Row="8" Grid.Column="0">
+        <BoxView Rotation="45" WidthRequest="10" HeightRequest="10" Color="Green" AbsoluteLayout.LayoutBounds=".5,0,.45,1" AbsoluteLayout.LayoutFlags="All" />
+        <Label HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               Text="L" FontSize="15" TextColor="Black"/>
+      </AbsoluteLayout>
+    </Grid>
+
+
+
+    <!--<Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="Pic2" Aspect="Fill" />-->
+    <!--<Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Source="Pic3" Aspect="Fill" />-->
+    <!--<Image Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Source="Pic4" Aspect="Fill" />-->
+    <!--<Image Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" Source="Pic5" Aspect="Fill" />-->
+    <!--<Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Source="Pic6" Aspect="Fill" />-->
+    <!--<Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Source="Pic7" Aspect="Fill" />-->
+    <!--<Image Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Source="Pic8" Aspect="Fill" />-->
+
+  </Grid>
+
+
+
+
+
+
+  <!--<ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="labelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#a8a8a8" />
+        <Setter Property="FontSize" Value="Small" />
+      </Style>
+      <Style x:Key="fieldStyle" TargetType="Label">
+        <Setter Property="TextColor">
+          <OnPlatform x:TypeArguments="Color" iOS="Black" Android="White" WinPhone="White" />
+        </Setter>
+        <Setter Property="FontSize" Value="Medium" />
+      </Style>
+      <Style x:Key="fieldView" TargetType="ContentView">
+        <Setter Property="Padding" Value="10,0,0,0" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+              BackgroundColor="#545454">
+          <StackLayout Padding="10,10,10,10" HorizontalOptions="Start">
+            <Label Text="Søg på bynavn" TextColor="White" FontAttributes="Bold"
+                FontSize="Medium" />
+            <Label x:Name="byNavnLabel" Text="By Navn" Style="{StaticResource labelStyle}" />
+            <Entry x:Name="byNavnEntry" />
+          </StackLayout>
+          <StackLayout Padding="0,0,0,10" VerticalOptions="End">
+            <Button x:Name="getWeatherBtn" Text="Hent vejr" WidthRequest="185" BorderWidth="1" >
+              <Button.TextColor>
+                <OnPlatform x:TypeArguments="Color" iOS="White"/>
+              </Button.TextColor>
+              <Button.BorderColor>
+                <OnPlatform x:TypeArguments="Color" iOS="White"/>
+              </Button.BorderColor>
+            </Button>
+          </StackLayout>
+        </StackLayout>
+        <StackLayout Padding="10,10,10,10" HorizontalOptions="Start">
+          <Label Text="Lokation" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label Text="{Binding Title}" Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Temperatur" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="tempLabel" Text="{Binding Temperature}"
+                Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Vindhastighed" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="windLabel" Text="{Binding Wind}" Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Fugtighed" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="humidityLabel" Text="{Binding Humidity}"
+                Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Sigtbarhed" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="visibilitylabel" Text="{Binding Visibility}"
+                Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Sol op" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="sunriseLabel" Text="{Binding Sunrise}"
+                Style="{StaticResource fieldStyle}" />
+          </ContentView>
+          <Label Text="Sol ned" Style="{StaticResource labelStyle}" />
+          <ContentView Style="{StaticResource fieldView}">
+            <Label x:Name="sunsetLabel" Text="{Binding Sunset}"
+                Style="{StaticResource fieldStyle}" />
+          </ContentView>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>-->
+  
+</ContentPage>

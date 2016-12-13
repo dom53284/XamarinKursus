@@ -11,13 +11,7 @@ namespace WeatherStation.ViewModel
     public class WeatherViewModel : INotifyPropertyChanged
     {
 
-
         public event PropertyChangedEventHandler PropertyChanged;
-
-
-
-
-
 
         public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
