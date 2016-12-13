@@ -27,7 +27,7 @@ namespace WeatherApp
             string cityID = "2618425";
 
             string queryString = "http://api.openweathermap.org/data/2.5/forecast?id="
-                + cityID + "&units=metric&cnt=3&appid=" + key;
+                + cityID + "&units=metric&cnt=4&appid=" + key;
 
             //string queryString = "http://api.openweathermap.org/data/2.5/weather?lat="
             //    + latitude + "&lon=" + longitude + "&units=metric&appid=" + key;
@@ -42,13 +42,21 @@ namespace WeatherApp
 //            if (results["weather"] != null)  // Med "weather" API skal man validere på "weather"
             if (results["city"] != null)     //   Med "forecast" API skal man validere på "city"
             {
-                    Debug.WriteLine("OKOKOK");
+//                Debug.WriteLine("OKOKOK");
                 Weather weather = new Weather();
                 weather.Place = (string)results["city"]["name"];
 
-                DateTime time = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);                    // Viser dato for det første forecast
-                DateTime dt = time.AddSeconds((double)results["list"][0]["dt"]).ToLocalTime();
-                weather.DatoTid = dt.ToString("dddd', d.'dd MMMM yyyy", new CultureInfo("da"));
+                if (results["list"][0]["dt"] != null)  // Viser dato, hentet i det første forecast
+                {
+                    DateTime time = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);                  
+                    DateTime dt = time.AddSeconds((double)results["list"][0]["dt"]).ToLocalTime();
+                    weather.DatoTid = dt.ToString("dddd', d.'dd MMMM yyyy", new CultureInfo("da"));
+                }
+
+
+
+
+
 
 
                 //weather.Temperature = (string)results["main"]["temp"] + " C";
