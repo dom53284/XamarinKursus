@@ -13,7 +13,6 @@ namespace Backend.WebApi
             // Web API configuration and services
 
 
-
             // Register ActionFilter
             config.Filters.Add(new VersionCheckFilter());
 

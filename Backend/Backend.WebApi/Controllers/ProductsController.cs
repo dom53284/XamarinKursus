@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -7,7 +11,7 @@ using System.Web.Http;
 
 namespace Backend.WebApi.Controllers
 {
-    [RoutePrefix("products")] // Bruges hvis Products skal hedde noget andet
+    [RoutePrefix("products")] // Bruges hvis man ikke vil bruge default routning
     public class ProductsController : ApiController
     {
         private Review[] reviews = new Review[]
@@ -22,11 +26,11 @@ namespace Backend.WebApi.Controllers
 
         private Product[] products = new Product[]
         {
-            new Product {Id = 0, Name = "Gummibolde", Category = "Legetøj", Price = 17.95m },
-            new Product {Id = 1, Name = "Hoppeborge", Category = "Legetøj", Price = 2595.00m },
-            new Product {Id = 2, Name = "Blyanter", Category = "Skoleredskaber", Price = 5.25m },
-            new Product {Id = 3, Name = "Kuglepenne", Category = "Skoleredskaber", Price = 17.95m },
-            new Product {Id = 4, Name = "Linealer", Category = "Skoleredskaber", Price = 22.50m }
+            new Product {PartitionKey="ProductKey", RowKey = "0", Name = "Gummibolde", Category = "Legetøj", Price = 17.95 },
+            new Product {PartitionKey="ProductKey", RowKey = "1", Name = "Hoppeborge", Category = "Legetøj", Price = 2595.00 },
+            new Product {PartitionKey="ProductKey", RowKey = "2", Name = "Blyanter", Category = "Skoleredskaber", Price = 5.25 },
+            new Product {PartitionKey="ProductKey", RowKey = "3", Name = "Kuglepenne", Category = "Skoleredskaber", Price = 17.95 },
+            new Product {PartitionKey="ProductKey", RowKey = "4", Name = "Linealer", Category = "Skoleredskaber", Price = 22.50 }
         };
 
 
@@ -42,23 +46,44 @@ namespace Backend.WebApi.Controllers
         [HttpGet]    // Skal med hvis [RoutePrefix]
         public IEnumerable<Product> GetAllProducts()
         {
-            return products;
+            //return products;  FØR Azure
+
+            CloudTableClient tableClient = CreateTableClient();
+            CloudTable table = tableClient.GetTableReference("Products");
+            var query =
+                from entity in table.CreateQuery<Product>()
+                where entity.PartitionKey == "ProductKey"
+                select entity;
+
+            return query;
+
         }
 
 
         [Route("{id}")]  // Skal med hvis [RoutePrefix]
         [HttpGet]        // Skal med hvis [RoutePrefix]
-        public Product GetProduct(int id)
+        public Product GetProduct(string id)
         {
-            foreach (var product in products)
-            {
-                if (product.Id == id)
-                {
-                    return product;
-                };
-            };
+            //foreach (var product in products)  FØR Azure
+            //{
+            //    if (product.RowKey == id)
+            //    {
+            //        return product;
+            //    };
+            //};
 
-            throw new NotFoundException();
+            CloudTableClient tableClient = CreateTableClient();
+            CloudTable table = tableClient.GetTableReference("Products");
+            var query =
+                from entity in table.CreateQuery<Product>()
+                where entity.PartitionKey == "ProductKey" && entity.RowKey == id
+                select entity;
+
+            var res = query.SingleOrDefault(p => p.RowKey == id);
+
+            return res;
+
+            //throw new NotFoundException();
 
             //return null;
 
@@ -76,6 +101,37 @@ namespace Backend.WebApi.Controllers
             //    return Ok(product);
             //};
         }
+
+        private CloudTableClient CreateTableClient()
+        {
+            CloudStorageAccount storageAccount =
+                CloudStorageAccount.Parse(
+                    ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            return tableClient;
+
+        }
+
+
+        internal void InitializeSampleData()
+        {
+            CloudTableClient tableClient = CreateTableClient();
+
+            CloudTable table = tableClient.GetTableReference("Products");
+
+            table.CreateIfNotExists();
+
+            foreach (var product in products)
+            {
+                var insertORreplace = TableOperation.InsertOrReplace(product);
+                table.Execute(insertORreplace);
+            };
+
+
+        }
+
 
     }
 }
