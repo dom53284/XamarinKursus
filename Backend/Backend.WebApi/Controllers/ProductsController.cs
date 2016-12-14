@@ -79,7 +79,7 @@ namespace Backend.WebApi.Controllers
                 where entity.PartitionKey == "ProductKey" && entity.RowKey == id
                 select entity;
 
-            var res = query.SingleOrDefault(p => p.RowKey == id);
+            var res = query.FirstOrDefault();
 
             return res;
 
