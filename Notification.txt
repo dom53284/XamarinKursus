@@ -1,0 +1,21 @@
+
+Server API Key help  
+
+AIzaSyDJcMpam7GX0qUFl2As6J0U6V8nuc_twh4
+
+
+Sender ID help  
+
+917497602723
+
+
+
+
+
+
+Endpoint=sb://franksnotificationnamespace.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=AruwyHLAClUOxEq+UzpwJgqHrJX+pb6whdX5wTC7VLs=
+
+
+Endpoint=sb://franksnotificationnamespace.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=KIpEYyYC6FbPnoHrmRdGLUUJoy+ftt9VGJhoh15pRuk=
+
+

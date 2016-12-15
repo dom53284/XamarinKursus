@@ -104,6 +104,7 @@ namespace Backend.WebApi.Controllers
 
         private CloudTableClient CreateTableClient()
         {
+
             CloudStorageAccount storageAccount =
                 CloudStorageAccount.Parse(
                     ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
